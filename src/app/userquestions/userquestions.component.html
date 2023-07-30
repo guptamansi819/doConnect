@@ -1,0 +1,65 @@
+<div class="background">
+<app-nav
+  [isHome]="true"
+  [links]="['UserQuestions', 'Chat', 'AskQuestion']"
+></app-nav>
+<div style="margin-top: 10vh; max-width: 50vw; margin-left: 25vw">
+  <mat-card>
+    <mat-card-title>Questions</mat-card-title>
+    <div
+      style="position: absolute; margin-left: 35vw; top: 5%"
+      *ngIf="data.length > 0"
+    >
+      <mat-form-field>
+        <mat-label>Select Topic</mat-label>
+        <mat-select
+          matNativeControl
+          required
+          [(ngModel)]="topic"
+          (ngModelChange)="changeData()"
+        >
+          <mat-option [value]="i" name="topic" *ngFor="let i of questionTopics">
+            {{ i }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </mat-card>
+  <div style="margin-top: 5vh">
+    <mat-card *ngIf="data.length > 0">
+      <mat-action-list>
+        <div>
+          <div *ngFor="let item of data">
+            <button mat-list-item>
+              <mat-card-content matLine>
+                <b>{{ item.question }} ?</b>
+              </mat-card-content>
+              <mat-card-content matLine
+                >By: {{ item.userName }}</mat-card-content
+              >
+              <mat-card-content matLine
+                >Asked on : {{ item.created }}</mat-card-content
+              >
+              <mat-card-content matLine
+                >Topic : {{ item.topic }}</mat-card-content
+              >
+              <mat-card-content matLine
+                >Answer : {{ item.answer }}</mat-card-content
+              >
+              <button mat-raised-button color="warn" (click)="answer(item)">
+                Answer
+              </button>
+            </button>
+            <mat-divider></mat-divider>
+          </div>
+        </div>
+      </mat-action-list>
+    </mat-card>
+    <mat-card *ngIf="data.length === 0">
+      <mat-card-subtitle style="margin-left: 15vw"
+        ><em>There are no questions</em>
+      </mat-card-subtitle>
+    </mat-card>
+  </div>
+</div></div>
+

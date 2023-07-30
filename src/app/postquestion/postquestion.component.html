@@ -1,0 +1,37 @@
+<app-nav
+  [isHome]="true"
+  [links]="['UserQuestions', 'Chat', 'AskQuestion']"
+></app-nav>
+<div class="background">
+<mat-card style="margin-top: 20vh; width: 20vw; margin-left: 40vw">
+  <mat-card-title style="margin-left: 40%">Ask Us</mat-card-title>
+  <mat-card-content>
+    <div style="display: flex; justify-content: center; align-items: center">
+      <form>
+        <mat-form-field>
+          <mat-label>Ask Any Question</mat-label>
+          <textarea
+            type="text"
+            name="question"
+            matInput
+            [(ngModel)]="question"
+            rows="5"
+          ></textarea>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Topic</mat-label>
+          <input type="text" name="topic" matInput [(ngModel)]="topic" />
+        </mat-form-field>
+      </form>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      style="margin-top: 5%; margin-left: 30%"
+      (click)="saveQuestion()"
+    >
+      Post
+    </button>
+  </mat-card-content>
+</mat-card></div>
+

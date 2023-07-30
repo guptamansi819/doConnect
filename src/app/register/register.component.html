@@ -1,0 +1,63 @@
+<div class="background">
+<app-nav [isHome]="false"></app-nav>
+<app-title subtitle="Why you are Waiting, Join Us Now" title="Welcome To doConnect"></app-title>
+<div
+    style="
+      max-width: 20%;
+      max-height: 20%;
+      margin-left: 65%;
+      top: 30%;
+      position: absolute;
+    "
+>
+  <mat-card>
+    <mat-card-title style="margin-left: 30%">Register</mat-card-title>
+    <mat-card-content>
+      <div style="display: flex; justify-content: center; align-items: center">
+        <form>
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input
+              type="text"
+              name="name"
+              matInput
+              [(ngModel)]="name"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              name="email"
+              matInput
+              [(ngModel)]="email"
+              required
+            />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              type="password"
+              name="password"
+              matInput
+              [(ngModel)]="password"
+              required
+            />
+          </mat-form-field>
+        </form>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        style="margin-top: 5%; margin-left: 30%"
+        (click)="register()"
+        
+      >
+        Register
+        
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>

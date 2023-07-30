@@ -1,0 +1,94 @@
+<div class="background">
+<app-nav
+  [isHome]="true"
+  [links]="['UserQuestions', 'Chat', 'AskQuestion']"
+></app-nav>
+<div
+  style="max-height: 50vh; max-width: 50vw; margin-top: 10vh; margin-left: 25vw"
+>
+  <div style="margin-bottom: 5vh">
+    <mat-card>
+      <mat-card-title style="margin-left: 17vw">Welcome to chat</mat-card-title>
+    </mat-card>
+  </div>
+  <div>
+    <mat-card
+      style="
+        height: 20vw;
+        overflow-y: auto;
+        width: 20vw;
+        position: absolute;
+        margin-left: 28vw;
+      "
+    >
+      <mat-card-title>Sent</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <mat-action-list>
+          <mat-list-item *ngFor="let m of messageData"
+            >{{ m.message }}
+          </mat-list-item>
+        </mat-action-list>
+      </mat-card-content>
+    </mat-card>
+    <mat-card style="height: 20vw; overflow-y: auto; width: 20vw">
+      <mat-card-title>Received</mat-card-title>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <mat-action-list>
+          <mat-list-item *ngFor="let m of recivedMessageData">
+            {{ m.message }}
+          </mat-list-item>
+        </mat-action-list>
+      </mat-card-content>
+    </mat-card>
+    <div style="margin-top: 1vh">
+      <mat-card>
+        <mat-form-field style="width: 41vw">
+          <mat-label>Type Your Message Here</mat-label>
+          <input matInput type="text" name="text" [(ngModel)]="message" />
+        </mat-form-field>
+        <button
+          mat-raised-button
+          color="accent"
+          style="margin-left: 1vw"
+          (click)="sendMessage()"
+        >
+          Send
+        </button>
+      </mat-card>
+    </div>
+    <mat-card
+      style="
+        height: 45vh;
+        width: 15vw;
+        position: absolute;
+        left: 6vw;
+        top: 27vh;
+      "
+    >
+      <mat-card-title>Users</mat-card-title>
+      <mat-divider></mat-divider>
+    </mat-card>
+    <mat-card
+      style="
+        height: 45vh;
+        width: 15vw;
+        position: absolute;
+        left: 6vw;
+        top: 35vh;
+        overflow-y: auto;
+      "
+    >
+      <mat-action-list>
+        <button
+          mat-list-item
+          *ngFor="let i of uniqueUsers"
+          (click)="changeMessages(i)"
+        >
+          {{ i }}
+        </button>
+      </mat-action-list>
+    </mat-card>
+  </div>
+</div></div>

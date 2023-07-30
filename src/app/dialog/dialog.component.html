@@ -1,0 +1,29 @@
+<div>
+  <mat-card>
+    <mat-card-content>
+      <div>
+        <form>
+          <h1 mat-card-title>{{ data.question }}</h1>
+          <mat-form-field style="width: 30vw;">
+            <mat-label>Answer Here</mat-label>
+            <textarea
+              rows="4"
+              matInput
+              type="text"
+              name="id"
+              [(ngModel)]="data.answer"
+            ></textarea>
+          </mat-form-field>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<button
+  mat-raised-button
+  color="primary"
+  style="margin-top: 8%; margin-left: 45%"
+  (click)="sendAnswer()"
+>
+  Submit
+</button>

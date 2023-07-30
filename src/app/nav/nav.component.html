@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a class="navbar-brand" href="/">
+      <div class="logo-image">
+            <!-- <img src="assets/image/Large.png" class="img-fluid"> -->
+            <img src="assets/image/use.jpg" class="img-fluid logo-image">
+      </div>
+</a>
+
+    <h1>DoConnect</h1>
+    <span class="menu-spacer"></span>
+    <div style="margin-left: 35%" *ngIf="isHome">
+      <a mat-button *ngFor="let i of links" [routerLink]="'/' + i"> {{ i }} </a>
+      <a mat-button [routerLink]="'/'"> Logout </a>
+    </div>
+    <div style="margin-left: 50%" *ngIf="!isHome">
+            <a mat-button [routerLink]="'/'"> Home </a>
+      <a mat-button [routerLink]="'Register'"> Register</a>
+    </div>
+    <div class="search">
+      <form action="#">
+          <input type="text"
+              placeholder=" Search Topic"
+              name="search">
+          <button>
+              <i class="fa fa-search"
+                  style="font-size: 18px;">
+              </i>
+          </button>
+      </form>
+  </div>
+  </mat-toolbar-row>
+</mat-toolbar>
